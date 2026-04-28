@@ -57,7 +57,7 @@
   <p>Please read each scenario and answer the questions immediately after.</p>
 
   <!-- SCENARIO A -->
-  <h2>Scenario A (Original)</h2>
+  <h2>Scenario A (Non-LLM Published Version)</h2>
   <div class="scenario">
     <p>PASTE YOUR ORIGINAL SCENARIO HERE</p>
   </div>
@@ -90,7 +90,7 @@
   </div>
 
   <!-- SCENARIO B -->
-  <h2>Scenario B (LLM-Enhanced)</h2>
+  <h2>Scenario B (LLM-Enhanced Version)</h2>
   <div class="scenario">
     <p>PASTE YOUR LLM SCENARIO HERE</p>
   </div>
@@ -122,24 +122,9 @@
     <label><input type="radio" name="b3" value="5"> Strongly Agree</label>
   </div>
 
-  <!-- COMPARISON -->
-  <h2>Final Comparison</h2>
-
-  <div class="question">
-    <p>Which scenario was more engaging?</p>
-    <label><input type="radio" name="c1" value="A"> Scenario A</label><br>
-    <label><input type="radio" name="c1" value="B"> Scenario B</label><br>
-    <label><input type="radio" name="c1" value="Equal"> Both equally</label>
-  </div>
-
-  <button class="btn" onclick="submitAnswers()">Submit</button>
-
-  <div id="output" class="output"></div>
-</div>
-
 <script>
 function submitAnswers() {
-  const fields = ["a1","a2","a3","b1","b2","b3","c1"];
+  const fields = ["a1","a2","a3","b1","b2","b3"];
   let responses = {};
 
   for (let f of fields) {
