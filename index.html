@@ -174,18 +174,26 @@
 
 <script>
 function submitAnswers() {
-  const A = document.querySelector('input[name="A"]:checked');
-  const B = document.querySelector('input[name="B"]:checked');
+  const selectedA = document.querySelector('input[name="A"]:checked');
+  const selectedB = document.querySelector('input[name="B"]:checked');
 
-  if (!A || !B) {
+  if (!selectedA || !selectedB) {
     alert("Please answer both questions.");
     return;
   }
 
+  // Get full label text
+  const textA = selectedA.parentElement.innerText;
+  const textB = selectedB.parentElement.innerText;
+
   const output = `
 Your Responses:
-Scenario A: ${A.value}
-Scenario B: ${B.value}
+
+Scenario A:
+${textA}
+
+Scenario B:
+${textB}
   `;
 
   const div = document.getElementById("output");
