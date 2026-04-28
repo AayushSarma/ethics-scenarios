@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ethics Scenario Study</title>
+  <title>Ethics Scenario Reimagined Scenarios</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -54,7 +54,7 @@
 <body>
 <div class="container">
   <h1>Engineering Ethics Study</h1>
-<p>Please read the following ethics scenario on <b>Professional Communication and Reputation</b>. You will find two versions of the same scenario: a <b>Non-LLM Published Version</b> and an <b>LLM-Enhanced Version</b>.</p>
+<p>Please read the following ethics scenario on <b>Professional Communication and Reputation</b> [<a href="https://onlineethics.org/cases/cases-nspe-board-ethical-review/comments-one-engineer-concerning-another-nspe-case-no-96-10" target="_blank">Source</a>]. You will find two versions of the same scenario: a <b>Non-LLM Published Version</b> and an <b>LLM-Enhanced Version</b>.</p>
 
 <ol>
   <li>First, read the Non-LLM published scenario and evaluate your ethics reasoning.</li>
@@ -62,7 +62,7 @@
 </ol>
 
   <!-- SCENARIO A -->
-  <h2>Scenario 3: Professional Communication and Reputation (Non-LLM Published Version)</h2>
+  <h2>Scenario A: Non-LLM Published Version</h2>
   <div class="scenario">
     <p>
     You are an engineer working on a project that requires expertise from another region.
@@ -104,15 +104,15 @@
   </div>
 
   <div class="question">
-    <p><b>A1.</b> What would you do in this situation?</p>
-    <label><input type="radio" name="a1" value="1"> A. Communicate concerns directly with the engineer before involving others</label><br>
-    <label><input type="radio" name="a1" value="2"> B. Report dissatisfaction to the recommending body without informing the engineer</label><br>
-    <label><input type="radio" name="a1" value="3"> C. Raise concerns with both the engineer and the recommending body simultaneously</label><br>
-    <label><input type="radio" name="a1" value="4"> D. Replace the engineer without providing detailed feedback</label><br>
+    <p><b>What would you do in this situation?</b></p>
+    <label><input type="radio" name="A" value="1"> 1. Communicate concerns directly with the engineer before involving others</label><br>
+    <label><input type="radio" name="A" value="2"> 2. Report dissatisfaction to the recommending body without informing the engineer</label><br>
+    <label><input type="radio" name="A" value="3"> 3. Raise concerns with both the engineer and the recommending body simultaneously</label><br>
+    <label><input type="radio" name="A" value="4"> 4. Replace the engineer without providing detailed feedback</label><br>
   </div>
 
   <!-- SCENARIO B -->
-  <h2>Scenario 3: Professional Communication and Reputation (LLM-Enhanced Version)</h2>
+  <h2>Scenario B: LLM-Enhanced Version</h2>
   <div class="scenario">
     <p>
     You’re leading a distributed engineering project with contributors across multiple countries.
@@ -160,10 +160,10 @@
 
   <div class="question">
     <p><b>B1.</b> What would you do in this situation?</p>
-    <label><input type="radio" name="a1" value="1"> A. Communicate concerns directly with the engineer before involving others</label><br>
-    <label><input type="radio" name="a1" value="2"> B. Report dissatisfaction to the recommending body without informing the engineer</label><br>
-    <label><input type="radio" name="a1" value="3"> C. Raise concerns with both the engineer and the recommending body simultaneously</label><br>
-    <label><input type="radio" name="a1" value="4"> D. Replace the engineer without providing detailed feedback</label><br>
+    <label><input type="radio" name="B" value="1"> 1. Communicate concerns directly with the engineer before involving others</label><br>
+    <label><input type="radio" name="B" value="2"> 2. Report dissatisfaction to the recommending body without informing the engineer</label><br>
+    <label><input type="radio" name="B" value="3"> 3. Raise concerns with both the engineer and the recommending body simultaneously</label><br>
+    <label><input type="radio" name="B" value="4"> 4. Replace the engineer without providing detailed feedback</label><br>
   </div>
 
     <button class="btn" onclick="submitAnswers()">Submit</button>
@@ -174,22 +174,19 @@
 
 <script>
 function submitAnswers() {
-  const fields = ["a1","a2","a3","b1","b2","b3"];
-  let responses = {};
+  const A = document.querySelector('input[name="A"]:checked');
+  const B = document.querySelector('input[name="B"]:checked');
 
-  for (let f of fields) {
-    const selected = document.querySelector(`input[name="${f}"]:checked`);
-    if (!selected) {
-      alert("Please answer all questions.");
-      return;
-    }
-    responses[f] = selected.value;
+  if (!A || !B) {
+    alert("Please answer both questions.");
+    return;
   }
 
-  let output = "Your Responses:\n";
-  for (let key in responses) {
-    output += key.toUpperCase() + ": " + responses[key] + "\n";
-  }
+  const output = `
+Your Responses:
+Scenario A: ${A.value}
+Scenario B: ${B.value}
+  `;
 
   const div = document.getElementById("output");
   div.style.display = "block";
