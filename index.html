@@ -7,8 +7,8 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      line-height: 1.6;
       background-color: #f9f9f9;
+      line-height: 1.6;
     }
     .container {
       max-width: 900px;
@@ -18,9 +18,6 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    h2 {
-      margin-top: 30px;
-    }
     .scenario {
       margin-top: 20px;
       padding: 20px;
@@ -28,32 +25,142 @@
       background: #f4f8ff;
       border-radius: 5px;
     }
-    .note {
+    .question {
       margin-top: 20px;
-      font-size: 14px;
-      color: #555;
+    }
+    .btn {
+      margin-top: 25px;
+      padding: 12px 18px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    .output {
+      margin-top: 20px;
+      padding: 15px;
+      background: #eef;
+      border-radius: 5px;
+      display: none;
+      white-space: pre-line;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Engineering Ethics Study</h1>
-    <p>Please read both scenarios carefully. You will answer questions about them afterwards.</p>
+<div class="container">
+  <h1>Engineering Ethics Study</h1>
+  <p>Please read each scenario and answer the questions immediately after.</p>
 
-    <!-- Scenario A -->
-    <h2>Scenario A (Original)</h2>
-    <div class="scenario">
-      <p>PASTE YOUR ORIGINAL SCENARIO HERE</p>
-    </div>
-
-    <!-- Scenario B -->
-    <h2>Scenario B (LLM-Enhanced)</h2>
-    <div class="scenario">
-      <p>PASTE YOUR LLM-ENHANCED SCENARIO HERE</p>
-    </div>
-
-    <p class="note">After reading both scenarios, please return to the survey to continue.</p>
+  <!-- SCENARIO A -->
+  <h2>Scenario A (Original)</h2>
+  <div class="scenario">
+    <p>PASTE YOUR ORIGINAL SCENARIO HERE</p>
   </div>
+
+  <div class="question">
+    <p><b>A1.</b> The scenario clearly presents an ethical dilemma</p>
+    <label><input type="radio" name="a1" value="1"> Strongly Disagree</label><br>
+    <label><input type="radio" name="a1" value="2"> Disagree</label><br>
+    <label><input type="radio" name="a1" value="3"> Neutral</label><br>
+    <label><input type="radio" name="a1" value="4"> Agree</label><br>
+    <label><input type="radio" name="a1" value="5"> Strongly Agree</label>
+  </div>
+
+  <div class="question">
+    <p><b>A2.</b> The scenario was engaging</p>
+    <label><input type="radio" name="a2" value="1"> Strongly Disagree</label><br>
+    <label><input type="radio" name="a2" value="2"> Disagree</label><br>
+    <label><input type="radio" name="a2" value="3"> Neutral</label><br>
+    <label><input type="radio" name="a2" value="4"> Agree</label><br>
+    <label><input type="radio" name="a2" value="5"> Strongly Agree</label>
+  </div>
+
+  <div class="question">
+    <p><b>A3.</b> The scenario made me consider cultural or societal factors</p>
+    <label><input type="radio" name="a3" value="1"> Strongly Disagree</label><br>
+    <label><input type="radio" name="a3" value="2"> Disagree</label><br>
+    <label><input type="radio" name="a3" value="3"> Neutral</label><br>
+    <label><input type="radio" name="a3" value="4"> Agree</label><br>
+    <label><input type="radio" name="a3" value="5"> Strongly Agree</label>
+  </div>
+
+  <!-- SCENARIO B -->
+  <h2>Scenario B (LLM-Enhanced)</h2>
+  <div class="scenario">
+    <p>PASTE YOUR LLM SCENARIO HERE</p>
+  </div>
+
+  <div class="question">
+    <p><b>B1.</b> The scenario clearly presents an ethical dilemma</p>
+    <label><input type="radio" name="b1" value="1"> Strongly Disagree</label><br>
+    <label><input type="radio" name="b1" value="2"> Disagree</label><br>
+    <label><input type="radio" name="b1" value="3"> Neutral</label><br>
+    <label><input type="radio" name="b1" value="4"> Agree</label><br>
+    <label><input type="radio" name="b1" value="5"> Strongly Agree</label>
+  </div>
+
+  <div class="question">
+    <p><b>B2.</b> The scenario was engaging</p>
+    <label><input type="radio" name="b2" value="1"> Strongly Disagree</label><br>
+    <label><input type="radio" name="b2" value="2"> Disagree</label><br>
+    <label><input type="radio" name="b2" value="3"> Neutral</label><br>
+    <label><input type="radio" name="b2" value="4"> Agree</label><br>
+    <label><input type="radio" name="b2" value="5"> Strongly Agree</label>
+  </div>
+
+  <div class="question">
+    <p><b>B3.</b> The scenario made me consider cultural or societal factors</p>
+    <label><input type="radio" name="b3" value="1"> Strongly Disagree</label><br>
+    <label><input type="radio" name="b3" value="2"> Disagree</label><br>
+    <label><input type="radio" name="b3" value="3"> Neutral</label><br>
+    <label><input type="radio" name="b3" value="4"> Agree</label><br>
+    <label><input type="radio" name="b3" value="5"> Strongly Agree</label>
+  </div>
+
+  <!-- COMPARISON -->
+  <h2>Final Comparison</h2>
+
+  <div class="question">
+    <p>Which scenario was more engaging?</p>
+    <label><input type="radio" name="c1" value="A"> Scenario A</label><br>
+    <label><input type="radio" name="c1" value="B"> Scenario B</label><br>
+    <label><input type="radio" name="c1" value="Equal"> Both equally</label>
+  </div>
+
+  <button class="btn" onclick="submitAnswers()">Submit</button>
+
+  <div id="output" class="output"></div>
+</div>
+
+<script>
+function submitAnswers() {
+  const fields = ["a1","a2","a3","b1","b2","b3","c1"];
+  let responses = {};
+
+  for (let f of fields) {
+    const selected = document.querySelector(`input[name="${f}"]:checked`);
+    if (!selected) {
+      alert("Please answer all questions.");
+      return;
+    }
+    responses[f] = selected.value;
+  }
+
+  let output = "Your Responses:\n";
+  for (let key in responses) {
+    output += key.toUpperCase() + ": " + responses[key] + "\n";
+  }
+
+  const div = document.getElementById("output");
+  div.style.display = "block";
+  div.innerText = output;
+}
+</script>
+
 </body>
 </html>
