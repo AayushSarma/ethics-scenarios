@@ -189,18 +189,29 @@ function submitAnswers() {
     return;
   }
 
-  // Get full label text
-  const textA = selectedA.parentElement.innerText;
-  const textB = selectedB.parentElement.innerText;
+  const textA = selectedA.parentElement.innerText.trim();
+  const textB = selectedB.parentElement.innerText.trim();
+
+  const feedbackMap = {
+    "1": "This action aligns with professional ethics, emphasising fairness, transparency, and direct communication.",
+    "2": "This approach risks bypassing fairness and may undermine professional trust and accountability.",
+    "3": "This is a balanced approach, but escalation may be premature without first addressing the issue directly.",
+    "4": "This response lacks professional responsibility and may negatively impact trust and professional integrity."
+  };
+
+  const valueA = selectedA.value;
+  const valueB = selectedB.value;
 
   const output = `
 Your Responses:
 
-Scenario A:
+Version A:
 ${textA}
+Feedback: ${feedbackMap[valueA]}
 
-Scenario B:
+Version B:
 ${textB}
+Feedback: ${feedbackMap[valueB]}
   `;
 
   const div = document.getElementById("output");
